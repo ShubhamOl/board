@@ -1,1 +1,26 @@
-<p>trello-list works!</p>
+<div class="trello-list-container">
+  <mat-toolbar color="primary" class="md-toolbar">
+    <span class="list-title">{{listData.name}}</span>
+    <span class="list-title-spacer"></span>
+    <button mat-icon-button (click)="deleteList()"  aria-label="Delete this list">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div *ngFor="let card of listData.cards">
+    {{card.name}}
+    <br>
+    <br>
+  </div>
+
+  <footer>
+    <button (click)="addNewCard()" mat-fab color="primary" aria-label="Add new card">
+      <mat-icon>add</mat-icon>
+    </button>
+  </footer>
+</div>

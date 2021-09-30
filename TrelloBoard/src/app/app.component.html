@@ -1,4 +1,18 @@
-<mat-toolbar color="primary">
-  <span class="title-center">Trello Board</span>
-</mat-toolbar>
+<div class="main-container">
+
+  <mat-toolbar color="primary">
+    <span class="title-center">Trello Board</span>
+  </mat-toolbar>
+
+  <div class="add-list-container">
+    <button mat-raised-button color="primary" (click)="addList()">Add List</button>
+  </div>
+
+  <div class="trello-board-container">
+    <div *ngFor="let list of trelloBoard">
+      <app-trello-list (updateList)="updateList($event)" [listData]="list"></app-trello-list>
+    </div>
+
+  </div>
+</div>
 

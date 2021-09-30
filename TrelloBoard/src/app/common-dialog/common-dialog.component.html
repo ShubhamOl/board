@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>{{data.mode==='card'?'New Card':'New List'}}</h1>
+<div mat-dialog-content>
+  <p>Please enter the following information for a new
+    {{data.mode}}</p>
+  <mat-form-field class="dialog-text-box" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput [formControl]="nameValidator" [errorStateMatcher]="matcher" required>
+    <mat-error *ngIf="nameValidator.errors?.required" >
+      Name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="dialog-text-box" *ngIf="data.mode==='card'" appearance="fill">
+    <mat-label>Description </mat-label>
+    <textarea matInput [(ngModel)]="data.description"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onYesClick()" cdkFocusInitial>Add</button>
+</div>
