@@ -3,7 +3,6 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow-x: auto;
 }
 
 .main-container>.add-list-container{
@@ -25,4 +24,5 @@
   flex-wrap: nowrap;
   padding: 10px;
   height: 100%;
+  overflow-x: auto;
 }

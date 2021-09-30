@@ -7,15 +7,18 @@
     </button>
   </mat-toolbar>
 
-  <br>
-  <br>
-  <br>
-  <br>
+  <div class="card-container">
 
-  <div *ngFor="let card of listData.cards">
-    {{card.name}}
     <br>
     <br>
+    <br>
+    <br>
+
+    <div *ngFor="let card of listData.cards">
+      {{card.name}}
+      <br>
+      <br>
+    </div>
   </div>
 
   <footer>

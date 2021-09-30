@@ -1,9 +1,12 @@
 .trello-list-container{
   width: 300px;
+  max-width: 300px;
   height: 100%;
   overflow-y: auto;
   position: relative;
   margin-right: 10px;
+  flex-direction: column;
+  display: flex;
   background: #8181812e;
 }
 .trello-list-container>.md-toolbar{
@@ -13,14 +16,26 @@
 .trello-list-container>.md-toolbar>button{
   transform: translateX(12px);
 }
+
+.card-container{
+  flex: 1;
+}
+
+.list-title{
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .list-title-spacer{
   flex: 1 1 auto;
 }
 
 .trello-list-container>footer{
   width: 100%;
-  position: absolute;
-  bottom: 0;
+  position: sticky;
+  bottom: 0px;
+  align-self: flex-end;
 }
 .trello-list-container>footer>button{
   margin-left: 50%;
