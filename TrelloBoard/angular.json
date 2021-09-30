@@ -117,8 +117,13 @@
               "devServerTarget": "TrelloBoard:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "TrelloBoard"
 }
