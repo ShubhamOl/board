@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
       const newTrelloList: TrelloList = {
         sequence: this.trelloBoard.length,
         name: result.name ? result.name : 'N/A',
-        cards: [{name: 'some card', timeCreated: new Date()}],
+        cards: [],
         id: newId
       };
 
