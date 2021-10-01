@@ -1,6 +1,6 @@
 <div class="trello-card">
 <div class="trello-card-title">
-  <strong>
+  <strong [title]="cardData.name">
     {{cardData.name}}
   </strong>
   <button mat-icon-button (click)="deleteCard()"  aria-label="Delete this list">
@@ -8,7 +8,7 @@
   </button>
 </div>
 
-<div class="trello-card-desc">
+<div [title]="cardData.description" class="trello-card-desc">
   <article>
       {{cardData.description}}
   </article>
