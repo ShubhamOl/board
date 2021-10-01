@@ -2,6 +2,7 @@ import { CommonDialogComponent } from './../common-dialog/common-dialog.componen
 import { MatDialog } from '@angular/material/dialog';
 import { TrelloCard } from './../trello-card/trello-card.component';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 export interface TrelloList{
   name: string;
@@ -56,6 +57,31 @@ export class TrelloListComponent implements OnInit {
   deleteList(): void{
     this.listData.sequence = -1;
     this.updateList.emit(this.listData);
+  }
+
+  drop(event: CdkDragDrop<TrelloList>): void {
+    if (event.previousContainer !== event.container) {
+      transferArrayItem(event.previousContainer.data.cards ,
+                        event.container.data.cards ,
+                        event.previousIndex,
+                        event.currentIndex);
+
+      this.listData.cards = this.listData.cards.sort((b , a) => {
+        return new Date(a.timeCreated).getTime() - new Date(b.timeCreated).getTime();
+      });
+      this.updateList.emit(event.previousContainer.data);
+      this.updateList.emit(event.container.data);
+
+    }
+  }
+
+  removeCardAtIndex(index: number): void {
+    if (index > -1 && index < this.listData.cards.length){
+      this.listData.cards.splice(index, 1);
+
+      this.updateList.emit(this.listData);
+    }
+
   }
 
 }

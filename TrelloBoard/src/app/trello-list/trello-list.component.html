@@ -8,16 +8,12 @@
   </mat-toolbar>
 
   <div class="card-container">
-
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <div *ngFor="let card of listData.cards">
-      {{card.name}}
-      <br>
-      <br>
+    <div cdkDropList [cdkDropListData]="listData"
+    class="card-list-conatiner" (cdkDropListDropped)="drop($event)">
+      <div class="trello-card-conatiner" *ngFor="let card of listData.cards,let i = index" cdkDrag>
+        <app-trello-card [cardData]="card" [index]="i" (removeCard)="removeCardAtIndex($event)">
+        </app-trello-card>
+      </div>
     </div>
   </div>
 
